@@ -21,7 +21,7 @@
 <body >
     <main class="bg-[#1E1E1E] min-h-screen bg-[url(images/background.png)] bg-no-repeat bg-center bg-top">
         <!-- home start -->
-        <section class="home min-h-screen text-white flex justify-center items-center hidden">
+        <section class="home min-h-screen text-white flex justify-center items-center">
             <div class="flex flex-col items-center gap-10">
                 <h1 class="text-8xl">Alpha Clash Pro</h1>
                 <p>Unleash Your Keyboard Kun g Fu: Press "Tnter" to Play</p>
@@ -31,7 +31,7 @@
         <!-- home ended -->
 
         <!-- playground start -->
-        <section class="play-ground">
+        <section class="play-ground hidden">
             <div class="flex flex-col items-center gap-20 pt-20">
                 <!-- screen start -->
                 <div class="artboard artboard-horizontal phone-6 border-[#010313cc] border-[20px] rounded-2xl bg-[#ffffffb3]">
@@ -101,7 +101,16 @@
         <!-- playground ended -->
 
         <!-- score start -->
-        <section class="score"></section>
+        <section class="score flex justify-center items-center min-h-screen hidden">
+            <div class="text-white text-center space-y-10 bg-[#ffffff33] p-10 rounded-lg">
+                <h1 class="text-8xl">
+                    <span class="font-extrabold">Score:</span>
+                    <span>14</span>
+                </h1>
+                <button class="btn">Play Again</button>
+                <p>Practice will make you a Pro</p>
+            </div>
+        </section>
         <!-- score ended -->
     </main>
 </body>
