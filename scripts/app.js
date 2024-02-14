@@ -31,8 +31,20 @@ function continueGame(){
     setBackgroundColor(alphabet);
 }
 
-function handleKeyboardButtonPress(){
-    console.log('keyboard press');
+function handleKeyboardKeyUpEvent(e){
+    const playerPressed = e.key;
+    console.log('player pressed: ', playerPressed);
+
+    const currentAlphabetElement = document.getElementById('current-alphabet');
+    const currentAlphabet = currentAlphabetElement.innerText;
+    const expectedAlphabet = currentAlphabet.toLowerCase();
+    console.log(playerPressed, expectedAlphabet);
+
+    if(playerPressed === expectedAlphabet){
+        console.log('you get a point');
+    } else {
+        console.log('you missed you lossed a life');
+    }
 }
 
-document.addEventListener('keyup', handleKeyboardButtonPress);
+document.addEventListener('keyup', handleKeyboardKeyUpEvent);
