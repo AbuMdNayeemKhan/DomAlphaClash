@@ -17,9 +17,22 @@ function getARandomAlphabet(){
     return alphabet;
 };
 
+function setBackgroundColor(alphabet){
+    const element = document.getElementById(alphabet);
+    element.classList.add('bg-orange-400');
+};
+
 function continueGame(){
     // step 1: generate a new number
     const alphabet = getARandomAlphabet();
     console.log(alphabet);
+    const currentAlphabet = document.getElementById('current-alphabet');
+    currentAlphabet.innerHTML = alphabet;
+    setBackgroundColor(alphabet);
 }
 
+function handleKeyboardButtonPress(){
+    console.log('keyboard press');
+}
+
+document.addEventListener('keyup', handleKeyboardButtonPress);
