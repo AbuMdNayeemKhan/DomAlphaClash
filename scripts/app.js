@@ -22,6 +22,11 @@ function setBackgroundColor(alphabet){
     element.classList.add('bg-orange-400');
 };
 
+function removeBackgroundColorById(alphabet){
+    const element = document.getElementById(alphabet);
+    element.classList.remove('bg-orange-400');
+}
+
 function continueGame(){
     // step 1: generate a new number
     const alphabet = getARandomAlphabet();
@@ -33,15 +38,14 @@ function continueGame(){
 
 function handleKeyboardKeyUpEvent(e){
     const playerPressed = e.key;
-    console.log('player pressed: ', playerPressed);
-
     const currentAlphabetElement = document.getElementById('current-alphabet');
     const currentAlphabet = currentAlphabetElement.innerText;
     const expectedAlphabet = currentAlphabet.toLowerCase();
-    console.log(playerPressed, expectedAlphabet);
 
+    // cheack right or wrong pressed
     if(playerPressed === expectedAlphabet){
-        console.log('you get a point');
+        removeBackgroundColorById(expectedAlphabet);
+        continueGame();
     } else {
         console.log('you missed you lossed a life');
     }
