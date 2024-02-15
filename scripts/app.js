@@ -44,6 +44,19 @@ function handleKeyboardKeyUpEvent(e){
 
     // cheack right or wrong pressed
     if(playerPressed === expectedAlphabet){
+        //update the score
+        //1. get the current score
+        const currentScoreElement = document.getElementById('current-score');
+        const currentScoreText = currentScoreElement.innerText;
+        const currentScore = parseInt(currentScoreText);
+
+        //2. increase the score by 1.
+        const newScore = currentScore + 1;
+
+        //3. show the update score
+        currentScoreElement.innerText = newScore
+
+        //start a new round
         removeBackgroundColorById(expectedAlphabet);
         continueGame();
     } else {
