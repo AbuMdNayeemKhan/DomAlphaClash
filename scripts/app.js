@@ -61,6 +61,15 @@ function handleKeyboardKeyUpEvent(e){
         continueGame();
     } else {
         console.log('you missed you lossed a life');
+        //1. get the current life number
+        const currentLifeElement = document.getElementById('current-life');
+        const currentLifeText = currentLifeElement.innerText;
+        const currentLife = parseInt(currentLifeText);
+
+        //2. reduce the life count
+        const newLife = currentLife - 1;
+        //3. display the update life count
+        currentLifeElement.innerText = newLife;
     }
 }
 
