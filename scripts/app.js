@@ -2,9 +2,20 @@ function play(){
     // hide the home screen. to hide the screen add the class hidden to the home section
     let homeScreen = document.getElementById('home-screen');
     homeScreen.classList.add('hidden');
+
+    // hide the final score screen. to hide the screen add the class hidden to the home section
+    let finalScore = document.getElementById('final-score');
+    finalScore.classList.add('hidden');
+
     // show the playground
     let playGround = document.getElementById('play-ground');
     playGround.classList.remove('hidden');
+
+    let currentLife = document.getElementById('current-life');
+    currentLife.innerText = 3
+
+    let currentScore = document.getElementById('current-score');
+    currentScore.innerText = 0;
     continueGame();
 }
 
@@ -41,6 +52,10 @@ function handleKeyboardKeyUpEvent(e){
     const currentAlphabetElement = document.getElementById('current-alphabet');
     const currentAlphabet = currentAlphabetElement.innerText;
     const expectedAlphabet = currentAlphabet.toLowerCase();
+    console.log(playerPressed);
+    if(playerPressed === 'Escape'){
+        gameOver();
+    }
 
     // cheack right or wrong pressed
     if(playerPressed === expectedAlphabet){
@@ -70,7 +85,31 @@ function handleKeyboardKeyUpEvent(e){
         const newLife = currentLife - 1;
         //3. display the update life count
         currentLifeElement.innerText = newLife;
+
+        if(newLife === 0){
+            gameOver();
+        }
     }
 }
 
 document.addEventListener('keyup', handleKeyboardKeyUpEvent);
+
+function gameOver(){
+    let playGround = document.getElementById('play-ground');
+    playGround.classList.add('hidden'); 
+    
+    let finalScore = document.getElementById('final-score');
+    finalScore.classList.remove('hidden');
+
+    //update finfal score
+    // 1. get the final score
+    let lastScoreText = document.getElementById('current-score');
+    let lastScoreVal = lastScoreText.innerText;
+    let lastScore = parseInt(lastScoreVal);
+    let lastScoreSet = document.getElementById('last-score');
+    lastScoreSet.innerText = lastScore;
+    let currentAlphabetById = document.getElementById('current-alphabet');
+    let currentAlphabet = currentAlphabetById.innerText;
+    document.getElementById(currentAlphabet).classList.remove('bg-orange-400');
+    getElementById();
+}
