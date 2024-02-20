@@ -81,10 +81,15 @@ function handleKeyboardKeyUpEvent(e){
         const currentLifeText = currentLifeElement.innerText;
         const currentLife = parseInt(currentLifeText);
 
+        //add sound 
+        audio.src = '../audio/wrang.wav';
+        audio.play();
+
         //2. reduce the life count
         const newLife = currentLife - 1;
         //3. display the update life count
         currentLifeElement.innerText = newLife;
+        
 
         if(newLife === 0){
             gameOver();
